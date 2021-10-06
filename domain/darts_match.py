@@ -8,7 +8,7 @@ class DartsMatch:
         self.winning_num_darts = -1
         self.winning_player_index = -1
 
-    def register_palyer(self, username):
+    def register_player(self, username):
         if username not in self.players:
             index = len(self.players)
             self.players.append(username)

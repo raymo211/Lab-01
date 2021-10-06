@@ -21,7 +21,7 @@ class MatchManager(ABC):
 
 class MatchVisitTemplate(ABC):
 
-    def process_visity(self, player_index, visit):
+    def process_visit(self, player_index, visit):
         """returns result (0 meaning game goes on, >0 meaning a dart finished the game), response (info messages)
         Skeleton of operations to perform. DON'T override me.
 
