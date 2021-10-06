@@ -11,9 +11,9 @@ class Dart:
 
     def to_string(self):
         segment = None
-        if self.segment is 25:
+        if self.segment == 25:
             segment = "BULL"
-        if self.segment is 0:
+        if self.segment == 0:
             return "MISS"
         return DartMultiplier(self.multiplier).name + "-" + str(self.segment) if segment is None else segment
 
@@ -22,7 +22,7 @@ class Visit:
     def __init__(self):
         self.darts = []  # Limited to 3 Dart elements for most games
 
-    def __int__(self, darts):
+    def __init__(self, darts):
         self.darts = []  # Limited to 3 Dart elements for most games
         self.add_darts(darts)
 

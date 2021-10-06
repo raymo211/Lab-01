@@ -67,7 +67,7 @@ class X01Match(MatchManager, MatchVisitTemplate):
 
         :return:
         """
-        if result is not 0:
+        if result != 0:
             visit.remove_trailing_darts(result)  # a double finished the game, so ignore any subsequent darts
 
             self.match.visits[player_index].append(visit)
@@ -78,19 +78,18 @@ class X01Match(MatchManager, MatchVisitTemplate):
 
         # Calculate single-dart average taking account of a double being it with dart 1 or 2 when checking out
         num_darts_thrown = (len(self.match.visits[player_index]) - 1) * 3
-        num_darts_thrown += 3 if result is 0 else result
+        num_darts_thrown += 3 if result == 0 else result
 
-        if result is not 0:
+        if result != 0:
             self.match.winning_num_darts = num_darts_thrown
             self.match.winning_player_index = player_index
 
         self.averages[player_index] = (STARTING_TOTAL - self.scores[player_index]) / num_darts_thrown
 
-
     def format_summary(self, player_index, visit):
         # Include suggested checkout if remaining score can be checked out in 3 darts
         summary = "Last visit was by " + self.match.players[player_index] + " with " + visit.to_string() + "\n"
-        if self.match.winning_player_index is not -1:
+        if self.match.winning_player_index != -1:
             summary += self.match.players[self.match.winning_player_index] + " wins in " \
                        + str(self.match.winning_num_darts) + " darts\n"
 
